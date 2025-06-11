@@ -11,7 +11,11 @@ public class Taschenrechner {
         String operator = frageNachOperator();
         double zahl2 = frageNachZahl("Gib die zweite Zahl ein: ");
         double ergebnis = berechne(zahl1, zahl2, operator);
-        System.out.println("Ergebnis: " + ergebnis);
+        if (zahl1 == 0 || zahl2 == 0) {
+            System.out.println("Kein Ergebnis");
+        } else {
+            System.out.println("Ergebnis: " + ergebnis);
+        }
 
         scanner.close();
     }
@@ -66,7 +70,6 @@ public class Taschenrechner {
             case "/":
                 if (a == 0 || b == 0) {
                     System.out.println("Fehler: Division durch 0 nicht erlaubt!");
-                    return Double.NaN;
                 }
                 return a / b;
             default:
